@@ -1,14 +1,15 @@
+from importlib.util import module_for_loader
 from django.db import models
 
 # Create your models here
-class clientes(models.Model):
+class Clientes(models.Model):
     nombre = models.CharField(max_length=50)
-    dni = models.CharField()
+    dni = models.CharField(max_length=50)
     fecha_nac = models.DateField()
-    domicilio = models.CharField()
-    telefono = models.CharField()
+    domicilio = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=50)
     
-class rents(models.Model):
+class Rents(models.Model):
     id_cliente = models.IntegerField()
     id_material = models.IntegerField()
     fecha_alqu = models.DateField()
@@ -19,13 +20,13 @@ class rents(models.Model):
     devuelto = models.BooleanField()
     pagado = models.BooleanField()
 
-class material(models.Model):
-    codigo = models.CharField()
-    descripcion = models.CharField()
+class Material(models.Model):
+    codigo = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=100)
     id_tipo = models.IntegerField()
     
-class tipo(models.Model):
-    nombre = models.CharField()
+class Tipo(models.Model):
+    nombre = models.CharField(max_length=50)
     
     
     
