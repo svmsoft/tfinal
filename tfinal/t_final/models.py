@@ -19,6 +19,8 @@ class Rents(models.Model):
     recargo = models.BooleanField()
     devuelto = models.BooleanField()
     pagado = models.BooleanField()
+    importe = models.FloatField(default=0)
+    
 
 class Material(models.Model):
     codigo = models.CharField(max_length=50)
