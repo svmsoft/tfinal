@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>Alquileres APP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link  href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="app">
+  <aside class="sidebar">
+         <header>
+        Alquileres
+      </header>
+    <nav class="sidebar-nav">
+ 
+      <ul>
+        <li>
+          <a href="#"><i class="ion-bag"></i> <span>Operaciones</span></a>
+          <ul class="nav-flyout">
+            <li>
+              <a href="{% url 'url_N_alquiler' %}"><i class="ion-bag"></i>Nuevo alquiler</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-paper-outline"></i>Listado</a>
+            </li>
+			<li>
+              <a href="#"><i class="ion-ios-arrow-right"></i>Devoluciones</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="ion-ios-people"></i> <span class="">Clientes</span></a>
+          <ul class="nav-flyout">
+            <li>
+              <a href="#"><i class="ion-ios-personadd"></i>Nuevo cliente</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-paper-outline"></i>Listado</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="ion-ios-box"></i> <span class="">Material de alquiler</span></a>
+          <ul class="nav-flyout">
+            <li>
+              <a href="#"><i class="ion-ios-checkmark"></i>Nuevo material</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-paper-outline"></i>Listado</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-cog"></i>Tipos de material</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-paper-outline"></i>Listado</a>
+            </li>
+             
+          </ul>
+        </li>
+        
+        
+      </ul>
+    </nav>
+  </aside>
+</section>
+
+
+<!-- partial -->
+
+<!---contenido cambiante--->
+<section class="content">
+{% block content %}
+
+{% endblock %}
+
+
+</section>
+
+
+
+  
+</body>
+</html>

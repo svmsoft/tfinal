@@ -15,6 +15,13 @@ body {
   background-color: #fefefe;
 }
 
+.content {
+float: right;
+width: 70%;
+height: 1600px;
+margin-left: 30%;
+}
+
 a {
   text-decoration: none;
   -webkit-transition: all 0.6s ease;
@@ -28,14 +35,14 @@ a:hover {
 }
 
 .app {
-  height: 100vh;
+  height: 10%;
 }
 
 /* -------------
 Sidebar
 ----------------*/
 .sidebar {
-  position: absolute;
+  position: fixed;
   width: 17em;
   height: 100%;
   top: 0;
@@ -150,3 +157,4 @@ Sidebar Nav
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+
