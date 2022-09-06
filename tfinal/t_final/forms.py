@@ -1,21 +1,21 @@
 from django import forms
 
-class From_clientes(forms.form):
+class Form_clientes(forms.Form):
     nombre=forms.CharField()
     dni=forms.CharField()
     fecha_nacimiento=forms.DateField()
     domicilio=forms.CharField()
     telefono=forms.CharField()
 
-class From_tipo(forms.form):
+class Form_tipo(forms.Form):
     nombre=forms.CharField()
     
-class From_material(forms.form):
+class Form_material(forms.Form):
     codigo=forms.CharField()
     descripcion=forms.CharField()
     tipo_material=forms.IntegerField()
 
-class From_rents(forms.form):
+class Form_rents(forms.Form):
     cliente=forms.IntegerField()
     material=forms.IntegerField()
     fecha_alquiler=forms.DateField()
