@@ -16,27 +16,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from t_final.views import Principal
-from t_final.views import N_alquiler
+from t_final.views import N_rent
 from t_final.views import A_lista
 from t_final.views import Devoluciones
 from t_final.views import N_cliente
 from t_final.views import C_lista
 from t_final.views import N_material
 from t_final.views import M_lista
-from t_final.views import N_tipos
+from t_final.views import N_tipo
 from t_final.views import T_lista
 
 urlpatterns = [
-    path('/', lambda req: redirect('Principal')),
+    #path('/', lambda req: redirect('Principal')),
+    path('', Principal),
     path('admin/', admin.site.urls),
     path('principal/',Principal, name='url_Principal'),
-    path('n_alquiler/',N_alquiler, name='url_N_alquiler'),
+    path('n_alquiler/',N_rent, name='url_N_alquiler'),
     path('a_lista/',A_lista, name='url_A_lista'),
     path('devoluciones/',Devoluciones, name='url_Devoluciones'),
     path('n_cliente/',N_cliente, name='url_N_cliente'),
     path('c_lista/',C_lista, name='url_C_lista'),
     path('n_material/',N_material, name='url_N_material'),
     path('m_lista/',M_lista, name='url_M_lista'),
-    path('tipos/',N_tipos, name='url_N_tipos'),
+    path('tipos/',N_tipo, name='url_N_tipos'),
     path('t_lista/',T_lista, name='url_T_lista'),
 ]
