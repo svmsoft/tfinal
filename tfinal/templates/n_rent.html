@@ -6,5 +6,12 @@
 {% block content %}
 <div class="box"></div>
 NUEVO ALQUILER
+<form action="" method="POST">
+    {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Crear">
+</form>
 {% endblock %}
 

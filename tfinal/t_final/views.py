@@ -18,7 +18,15 @@ def Principal(request):
     return render(request, "index.html")
 
 def N_rent(request):
-    return render(request, "n_rent.html")
+    if request.method=="POST":
+        miFormulario=Form_rents(request.POST)
+        if miFormulario.is_valid():
+            dataForm=miFormulario.cleaned_data
+            
+            return render(request, "nuevoregistro.html")
+    else:
+        miFormulario=Form_rents()
+    return render(request, "n_rent.html", {"form":miFormulario})
 
 def A_lista(request):
     return render(request, "a_lista.html")    
@@ -30,19 +38,36 @@ def C_lista(request):
     return render(request, "c_lista.html")  
 
 def N_material(request):
-    return render(request, "n_material.html")
+    if request.method=="POST":
+        miFormulario=Form_material(request.POST)
+        if miFormulario.is_valid():
+            dataForm=miFormulario.cleaned_data
+            
+            return render(request, "nuevoregistro.html")
+    else:
+        miFormulario=Form_material()
+    return render(request, "n_material.html", {"form":miFormulario})
 
 def M_lista(request):
     return render(request, "m_lista.html")    
     
 def N_tipo(request):
-    return render(request, "n_tipo.html") 
+    if request.method=="POST":
+        miFormulario=Form_tipo(request.POST)
+        if miFormulario.is_valid():
+            dataForm=miFormulario.cleaned_data
+            
+            return render(request, "nuevoregistro.html")
+    else:
+        miFormulario=Form_tipo()
+    return render(request, "n_tipo.html", {"form":miFormulario}) 
     
 def T_lista(request):
+
     return render(request, "t_lista.html")
 
 def N_cliente(request):
-    if request.metod=="POST":
+    if request.method=="POST":
         miFormulario=Form_clientes(request.POST)
         if miFormulario.is_valid():
             dataForm=miFormulario.cleaned_data
@@ -50,7 +75,7 @@ def N_cliente(request):
             return render(request, "nuevoregistro.html")
     else:
         miFormulario=Form_clientes()
-    return render(request, "N_cliente.html", {"form":miFormulario})
+    return render(request, "n_cliente.html", {"form":miFormulario})
     
     
     
