@@ -5,7 +5,7 @@ from django.db import models
 class Clientes(models.Model):
     nombre = models.CharField(max_length=50)
     dni = models.CharField(max_length=50)
-    fecha_nac = models.DateField()
+    fecha_nac = models.DateField(null=True)
     domicilio = models.CharField(max_length=100)
     telefono = models.CharField(max_length=50)
     

@@ -29,9 +29,9 @@ a {
   transition: all 0.6s ease;
 }
 a:hover {
-  -webkit-transition: all 0.6s ease;
-  -moz-transition: all 0.6s ease;
-  transition: all 0.6s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .app {
@@ -72,7 +72,7 @@ Sidebar Nav
   padding-bottom: 6em;
   z-index: 9;
   overflow: hidden;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: auto;
   /* -------------
   Chev elements
   ----------------*/
@@ -135,14 +135,14 @@ Sidebar Nav
   left: 2.5em;
   top: 0;
   height: 100vh;
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
-  transform: translateX(100%);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transform: translateX(150%);
+  -moz-transform: translateX(150%);
+  -ms-transform: translateX(150%);
+  -o-transform: translateX(150%);
+  transform: translateX(150%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
 }
 .sidebar-nav .nav-flyout a:hover {
   background-color: rgba(255, 255, 255, 0.05);

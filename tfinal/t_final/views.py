@@ -71,6 +71,9 @@ def N_cliente(request):
         miFormulario=Form_clientes(request.POST)
         if miFormulario.is_valid():
             dataForm=miFormulario.cleaned_data
+            cliente1 = Clientes(nombre=dataForm.get('nombre'), dni=dataForm.get('dni'), fecha_nac=dataForm.get('fecha_nac'), domicilio=dataForm.get('domicilio'), telefono=dataForm.get('telefono'))
+            cliente1.save()
+            
             
             return render(request, "nuevoregistro.html")
     else:
