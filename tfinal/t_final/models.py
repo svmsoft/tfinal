@@ -5,20 +5,20 @@ from django.db import models
 class Clientes(models.Model):
     nombre = models.CharField(max_length=50)
     dni = models.CharField(max_length=50)
-    fecha_nac = models.DateField(null=True)
+    fecha_nac = models.DateField()
     domicilio = models.CharField(max_length=100)
     telefono = models.CharField(max_length=50)
     
 class Rents(models.Model):
     id_cliente = models.IntegerField()
     id_material = models.IntegerField()
-    fecha_alqu = models.DateField()
+    fecha_alq = models.DateField()
     hora_alq = models.DateField()
     fecha_dev_est = models.DateField()
     hora_dev_est = models.DateField()
-    recargo = models.BooleanField()
-    devuelto = models.BooleanField()
-    pagado = models.BooleanField()
+    recargo = models.BooleanField(null=True)
+    devuelto = models.BooleanField(null=True)
+    pagado = models.BooleanField(null=True)
     importe = models.FloatField(default=0)
     
 
