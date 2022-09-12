@@ -34,9 +34,23 @@ def N_rent(request):
 
 
     #-----------------------------------------------------------
-
+    #Listado de alquileres
 def A_lista(request):
-    return render(request, "a_lista.html")    
+
+    alquileres = Rents.Objects.all()
+    contexto = {
+        'id_cliente' : id_cliente
+        'id_material' : id_material
+        'fecha_alq' : fecha_alq
+        'hora_alq' : hora_alq
+        'fecha_dev_est' : fecha_dev_est
+        'hora_dev_est' : hora_dev_est
+        'recargo' : recargo
+        'devuelto' : devuelto
+        'pagado' : pagado
+        'importe' : importe
+    }
+    return render(request, "a_lista.html", contexto)    
 
    #-----------------------------------------------------------
 
@@ -44,7 +58,7 @@ def Devoluciones(request):
     return render(request, "devoluciones.html")
 
     #-----------------------------------------------------------
-
+    #Listado de clientes
 def C_lista(request):
     return render(request, "c_lista.html")  
 
@@ -64,7 +78,7 @@ def N_material(request):
 
 
     #--------------------------------------------------------
-
+    #Listado de materiales
 def M_lista(request):
     return render(request, "m_lista.html")    
 
@@ -85,7 +99,7 @@ def N_tipo(request):
     return render(request, "n_tipo.html", {"form":miFormulario}) 
 
     #---------------------------------------------------------------
-    
+    #Listado de tipos de materiales
 def T_lista(request):
 
     return render(request, "t_lista.html")
