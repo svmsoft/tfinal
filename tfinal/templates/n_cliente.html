@@ -4,12 +4,15 @@
 
 {% block content %}
 <div class="box"></div>
-NUEVO CLIENTE
+<br>
+<h4>NUEVO CLIENTE</h2>
+<br>
+
 <form action="" method="POST">
     {% csrf_token %}
 
         {{ form.as_p }}
 
-        <input type="submit" value="Crear">
+        <input type="submit" value="Aceptar">
 </form>
 {% endblock %}

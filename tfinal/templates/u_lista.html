@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+<h4>LISTADO USUARIOS</h4>
+<br>
+
+<div class="box">
+<table class="table table-bordered">
+	<thead>
+		
+			<tr>
+				<td>Nro</td>
+				<td>Nombre</td>
+				<td>Clave</td>
+				<td>Permiso</td>
+				<td>Activo</td>
+				<td>Acciones</td>
+			</tr>
+			
+	</thead>
+	<tbody>
+		
+
+		{% if object_list %}
+		{% for usuario_qset in object_list %}
+		<tr>
+		<td>{{ usuario_qset.id }}</td>
+		<td>{{ usuario_qset.nombre }}</td>
+		<td>{{ usuario_qset.clave }}</td>
+		<td>{{ usuario_qset.permiso }}</td>
+		<td>{{ usuario_qset.activo }}</td>
+		
+		
+		<td>
+			<a class="btn btn-primary btn-sm" href="{% url 'url_u_edit' usuario_qset.id %}">Editar</a>
+			
+		</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		<h5>No hay registros para mostrar</h5>
+		{% endif %}
+	</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

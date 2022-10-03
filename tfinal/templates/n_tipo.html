@@ -4,12 +4,15 @@
 
 {% block content %}
 <div class="box"></div>
-NUEVO TIPO DE MATERIAL
+<br>
+<h4>NUEVO TIPO DE MATERIAL</h2>
+<br>
+
 <form action="" method="POST">
     {% csrf_token %}
 
         {{ form.as_p }}
 
-        <input type="submit" value="Crear">
+        <input type="submit" value="Aceptar">
 </form>
 {% endblock %}

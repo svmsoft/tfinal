@@ -4,5 +4,72 @@
 
 {% block content %}
 <div class="box"></div>
-LISTADO DE CLIENTES
+
+
+<br>
+<h4>LISTADO DE CLIENTES</h4>
+<br>
+
+<div class="box">
+<table class="table table-bordered">
+	<thead>
+		
+			<tr>
+				<td>Nro</td>
+				<td>Nombre</td>
+				<td>DNI</td>
+				<td>F. Nacimiento</td>
+				<td>Domicilio</td>
+				<td>Teléfono</td>
+				<td>Activo</td>
+				<td>Acciones</td>
+			</tr>
+			
+	</thead>
+	<tbody>
+		<!-- #Clientes es el modelo 
+			 #clientes_qset es el array de objetos
+			 #clientes es el contexto -->
+
+		{% if object_list %}
+		{% for clientes_qset in object_list %}
+		<tr>
+		<td>{{ clientes_qset.id }}</td>
+		<td>{{ clientes_qset.nombre }}</td>
+		<td>{{ clientes_qset.dni }}</td>
+		<td>{{ clientes_qset.fecha_nac }}</td>
+		<td>{{ clientes_qset.domicilio }}</td>
+		<td>{{ clientes_qset.telefono }}</td>
+		<td>{{ clientes_qset.activo }}</td>
+		
+		<td>
+			<a class="btn btn-primary btn-sm" href="{% url 'url_cli_edit' clientes_qset.id %}">Editar</a>
+			
+		</td>
+		</tr>
+		{% endfor %}
+		<div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">ultima &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+		{% else %}
+		<h5>No hay registros para mostrar</h5>
+		{% endif %}
+	</tbody>
+</table>
+</div>
+
 {% endblock %}

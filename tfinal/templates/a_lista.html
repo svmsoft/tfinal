@@ -3,6 +3,76 @@
 {% load static %}
 
 {% block content %}
-<div class="box"></div>
-LISTADO DE ALQUILERES
+<br>
+<h4>LISTADO DE ALQUILERES</h4>
+<br>
+
+<div class="box">
+<table class="table table-bordered">
+	<thead>
+		
+			<tr>
+				<td>Nro</td>
+				<td>ID_cliente</td>
+				<td>ID_material</td>
+				<td>Fecha alquiler</td>
+				<td>Hora alquiler</td>
+				<td>Fecha dev. estimada</td>
+				<td>Hora dev. estimada</td>
+				<td>Recargo</td>
+				<td>Devuelto</td>
+				<td>Pagado</td>
+				<td>Importe $</td>
+				<td>Acciones</td>
+			</tr>
+			
+	</thead>
+	<tbody>
+		<!-- #Rents es el modelo 
+			 #rents es el array de objetos
+			 #alquileres es el contexto -->
+
+		{% if object_list %}
+		{% for rents in object_list %}
+		<tr>
+		<td>{{ rents.id }}</td>
+		<td>{{ rents.id_cliente }}</td>
+		<td>{{ rents.id_material }}</td>
+		<td>{{ rents.fecha_alq }}</td>
+		<td>{{ rents.hora_alq }}</td>
+		<td>{{ rents.fecha_dev_est }}</td>
+		<td>{{ rents.hora_dev_est }}</td>
+		<td>{{ rents.recargo }}</td>
+		<td>{{ rents.devuelto }}</td>
+		<td>{{ rents.pagado }}</td>
+		<td>{{ rents.importe }}</td>
+		<td>
+			<a class="btn btn-primary btn-sm" href="{% url 'url_rent_edit' rents.id %}">Editar</a>
+			<a class="btn btn-primary btn-sm" href="{% url 'url_rent_del' rents.id %}">Eliminar</a>
+		</td>
+		</tr>
+		{% endfor %}
+		<div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">ultima &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+		{% else %}
+		<h5>No hay registros para mostrar</h5>
+		{% endif %}
+	</tbody>
+</table>
+</div>
 {% endblock %}
